@@ -9,30 +9,31 @@
 #import "XBDetailViewController.h"
 
 @interface XBDetailViewController ()
+
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 - (void)configureView;
+
 @end
 
 @implementation XBDetailViewController
 
-@synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
-@synthesize masterPopoverController = _masterPopoverController;
+@synthesize detailItem = detailItem_;
+@synthesize detailDescriptionLabel = detailDescriptionLabel_;
+@synthesize masterPopoverController = masterPopoverController_;
 
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+    if (detailItem_ != newDetailItem)
+    {
+        detailItem_ = newDetailItem;
         
         // Update the view.
         [self configureView];
     }
 
-    if (self.masterPopoverController != nil) {
-        [self.masterPopoverController dismissPopoverAnimated:YES];
-    }        
+    [self.masterPopoverController dismissPopoverAnimated:YES];
 }
 
 - (void)configureView
@@ -42,12 +43,6 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 #pragma mark - View lifecycle
@@ -66,40 +61,15 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-	[super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-	[super viewDidDisappear:animated];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
+    return ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPhone
+            || interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         self.title = NSLocalizedString(@"Detail", @"Detail");
     }
     return self;
