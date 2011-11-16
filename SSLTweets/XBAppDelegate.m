@@ -20,13 +20,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    UIWindow *newWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIViewController *rootViewController;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
         XBMasterViewController *masterViewController = [[XBMasterViewController alloc] initWithNibName:@"XBMasterViewController_iPhone" bundle:nil];
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        self.window.rootViewController = self.navigationController;
+        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+        self.navigationController = masterNavigationController;
+        rootViewController = masterNavigationController;
     }
     else
     {
@@ -35,14 +36,16 @@
         
         XBDetailViewController *detailViewController = [[XBDetailViewController alloc] initWithNibName:@"XBDetailViewController_iPad" bundle:nil];
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
-    	
-        self.splitViewController = [[UISplitViewController alloc] init];
-        self.splitViewController.delegate = detailViewController;
-        self.splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
-        
-        self.window.rootViewController = self.splitViewController;
+
+        UISplitViewController *newSplitViewController = [[UISplitViewController alloc] init];
+        newSplitViewController.delegate = detailViewController;
+        newSplitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+        self.splitViewController = newSplitViewController;
+        rootViewController = newSplitViewController;
     }
-    [self.window makeKeyAndVisible];
+    newWindow.rootViewController = rootViewController;
+    self.window = newWindow;
+    [newWindow makeKeyAndVisible];
     return YES;
 }
 
