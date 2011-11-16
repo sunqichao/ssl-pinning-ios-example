@@ -1,0 +1,9 @@
+# Finder droppings, in any directory.
+.DS_Store
+
+# Ignore user-specific workspace settings.
+/*.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad/
+/*.xcodeproj/xcuserdata/*.xcuserdatad/
+
+# Ignore AppCode project files.
+/.idea
