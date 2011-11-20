@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XBDetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface XBDetailViewController : UITableViewController <UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) id detailItem;
-
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (copy, nonatomic) NSDictionary *detailItem;
 
 @end

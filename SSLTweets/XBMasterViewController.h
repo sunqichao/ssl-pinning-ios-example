@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "XBTwitterSearchDataDelegate.h"
+
 @class XBDetailViewController;
 
-@interface XBMasterViewController : UITableViewController
+@interface XBMasterViewController : UITableViewController<XBTwitterSearchResultDelegate>
 
 @property (strong, nonatomic) XBDetailViewController *detailViewController;
+
+- (void)startSearch;
 
 @end

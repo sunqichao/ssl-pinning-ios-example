@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F6A09701477021900F3A4F5 /* XBTextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */; };
 		6F8F18F614730FAA00922703 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F18F514730FAA00922703 /* UIKit.framework */; };
 		6F8F18F814730FAA00922703 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F18F714730FAA00922703 /* Foundation.framework */; };
 		6F8F18FA14730FAA00922703 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F18F914730FAA00922703 /* CoreGraphics.framework */; };
@@ -19,9 +20,13 @@
 		6F8F191214730FAA00922703 /* XBMasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F8F191014730FAA00922703 /* XBMasterViewController_iPad.xib */; };
 		6F8F191514730FAA00922703 /* XBDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F8F191314730FAA00922703 /* XBDetailViewController_iPhone.xib */; };
 		6F8F191814730FAA00922703 /* XBDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F8F191614730FAA00922703 /* XBDetailViewController_iPad.xib */; };
+		6F8F192014738C8800922703 /* XBTwitterSearchDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8F191F14738C8800922703 /* XBTwitterSearchDataDelegate.m */; };
+		6FE4AB651474538F002C0755 /* NSDictionary+Xebia.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE4AB641474538F002C0755 /* NSDictionary+Xebia.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F6A096E1477021900F3A4F5 /* XBTextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTextViewTableCell.h; sourceTree = "<group>"; };
+		6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTextViewTableCell.m; sourceTree = "<group>"; };
 		6F8F18F114730FAA00922703 /* SSLTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSLTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F8F18F514730FAA00922703 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F8F18F714730FAA00922703 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -40,6 +45,10 @@
 		6F8F191114730FAA00922703 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XBMasterViewController_iPad.xib; sourceTree = "<group>"; };
 		6F8F191414730FAA00922703 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XBDetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		6F8F191714730FAA00922703 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XBDetailViewController_iPad.xib; sourceTree = "<group>"; };
+		6F8F191E14738C8800922703 /* XBTwitterSearchDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTwitterSearchDataDelegate.h; sourceTree = "<group>"; };
+		6F8F191F14738C8800922703 /* XBTwitterSearchDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTwitterSearchDataDelegate.m; sourceTree = "<group>"; };
+		6FE4AB631474538F002C0755 /* NSDictionary+Xebia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Xebia.h"; sourceTree = "<group>"; };
+		6FE4AB641474538F002C0755 /* NSDictionary+Xebia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Xebia.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +95,18 @@
 		6F8F18FB14730FAA00922703 /* SSLTweets */ = {
 			isa = PBXGroup;
 			children = (
+				6FE4AB631474538F002C0755 /* NSDictionary+Xebia.h */,
+				6FE4AB641474538F002C0755 /* NSDictionary+Xebia.m */,
 				6F8F190414730FAA00922703 /* XBAppDelegate.h */,
 				6F8F190514730FAA00922703 /* XBAppDelegate.m */,
-				6F8F190714730FAA00922703 /* XBMasterViewController.h */,
-				6F8F190814730FAA00922703 /* XBMasterViewController.m */,
 				6F8F190A14730FAA00922703 /* XBDetailViewController.h */,
 				6F8F190B14730FAA00922703 /* XBDetailViewController.m */,
+				6F8F190714730FAA00922703 /* XBMasterViewController.h */,
+				6F8F190814730FAA00922703 /* XBMasterViewController.m */,
+				6F6A096E1477021900F3A4F5 /* XBTextViewTableCell.h */,
+				6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */,
+				6F8F191E14738C8800922703 /* XBTwitterSearchDataDelegate.h */,
+				6F8F191F14738C8800922703 /* XBTwitterSearchDataDelegate.m */,
 				6F8F190D14730FAA00922703 /* XBMasterViewController_iPhone.xib */,
 				6F8F191014730FAA00922703 /* XBMasterViewController_iPad.xib */,
 				6F8F191314730FAA00922703 /* XBDetailViewController_iPhone.xib */,
@@ -182,6 +197,9 @@
 				6F8F190614730FAA00922703 /* XBAppDelegate.m in Sources */,
 				6F8F190914730FAA00922703 /* XBMasterViewController.m in Sources */,
 				6F8F190C14730FAA00922703 /* XBDetailViewController.m in Sources */,
+				6F8F192014738C8800922703 /* XBTwitterSearchDataDelegate.m in Sources */,
+				6FE4AB651474538F002C0755 /* NSDictionary+Xebia.m in Sources */,
+				6F6A09701477021900F3A4F5 /* XBTextViewTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

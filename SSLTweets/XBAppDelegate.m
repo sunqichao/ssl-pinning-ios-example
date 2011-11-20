@@ -36,12 +36,15 @@
         
         XBDetailViewController *detailViewController = [[XBDetailViewController alloc] initWithNibName:@"XBDetailViewController_iPad" bundle:nil];
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+        masterViewController.detailViewController = detailViewController;
 
         UISplitViewController *newSplitViewController = [[UISplitViewController alloc] init];
         newSplitViewController.delegate = detailViewController;
         newSplitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
         self.splitViewController = newSplitViewController;
         rootViewController = newSplitViewController;
+
+        [masterViewController startSearch];
     }
     newWindow.rootViewController = rootViewController;
     self.window = newWindow;
