@@ -8,6 +8,10 @@
 #error "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
+#if !(__has_feature(objc_arc))
+#error "This project requires automated reference counting (ARC)."
+#endif
+
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
