@@ -102,8 +102,7 @@
 		6F8F18FB14730FAA00922703 /* SSLTweets */ = {
 			isa = PBXGroup;
 			children = (
-				6FE4AB631474538F002C0755 /* NSDictionary+Xebia.h */,
-				6FE4AB641474538F002C0755 /* NSDictionary+Xebia.m */,
+				6F9779CE147ED540003138B9 /* Categories */,
 				6F8F190414730FAA00922703 /* XBAppDelegate.h */,
 				6F8F190514730FAA00922703 /* XBAppDelegate.m */,
 				6F8F190A14730FAA00922703 /* XBDetailViewController.h */,
@@ -134,6 +133,15 @@
 				6F8F190314730FAA00922703 /* SSLTweets-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6F9779CE147ED540003138B9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				6FE4AB631474538F002C0755 /* NSDictionary+Xebia.h */,
+				6FE4AB641474538F002C0755 /* NSDictionary+Xebia.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
