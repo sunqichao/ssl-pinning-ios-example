@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F03257914799896000DC92F /* XBURLConnectionAuthenticationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F03257814799896000DC92F /* XBURLConnectionAuthenticationDelegate.m */; };
+		6F03257C14799AC8000DC92F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F03257B14799AC8000DC92F /* Security.framework */; };
 		6F6A09701477021900F3A4F5 /* XBTextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */; };
 		6F8F18F614730FAA00922703 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F18F514730FAA00922703 /* UIKit.framework */; };
 		6F8F18F814730FAA00922703 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F18F714730FAA00922703 /* Foundation.framework */; };
@@ -25,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F03257714799896000DC92F /* XBURLConnectionAuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBURLConnectionAuthenticationDelegate.h; sourceTree = "<group>"; };
+		6F03257814799896000DC92F /* XBURLConnectionAuthenticationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBURLConnectionAuthenticationDelegate.m; sourceTree = "<group>"; };
+		6F03257B14799AC8000DC92F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		6F6A096E1477021900F3A4F5 /* XBTextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTextViewTableCell.h; sourceTree = "<group>"; };
 		6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTextViewTableCell.m; sourceTree = "<group>"; };
 		6F8F18F114730FAA00922703 /* SSLTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSLTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F03257C14799AC8000DC92F /* Security.framework in Frameworks */,
 				6F8F18F614730FAA00922703 /* UIKit.framework in Frameworks */,
 				6F8F18F814730FAA00922703 /* Foundation.framework in Frameworks */,
 				6F8F18FA14730FAA00922703 /* CoreGraphics.framework in Frameworks */,
@@ -88,6 +94,7 @@
 				6F8F18F514730FAA00922703 /* UIKit.framework */,
 				6F8F18F714730FAA00922703 /* Foundation.framework */,
 				6F8F18F914730FAA00922703 /* CoreGraphics.framework */,
+				6F03257B14799AC8000DC92F /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,16 +108,18 @@
 				6F8F190514730FAA00922703 /* XBAppDelegate.m */,
 				6F8F190A14730FAA00922703 /* XBDetailViewController.h */,
 				6F8F190B14730FAA00922703 /* XBDetailViewController.m */,
+				6F8F191314730FAA00922703 /* XBDetailViewController_iPhone.xib */,
+				6F8F191614730FAA00922703 /* XBDetailViewController_iPad.xib */,
 				6F8F190714730FAA00922703 /* XBMasterViewController.h */,
 				6F8F190814730FAA00922703 /* XBMasterViewController.m */,
+				6F8F190D14730FAA00922703 /* XBMasterViewController_iPhone.xib */,
+				6F8F191014730FAA00922703 /* XBMasterViewController_iPad.xib */,
 				6F6A096E1477021900F3A4F5 /* XBTextViewTableCell.h */,
 				6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */,
 				6F8F191E14738C8800922703 /* XBTwitterSearchDataDelegate.h */,
 				6F8F191F14738C8800922703 /* XBTwitterSearchDataDelegate.m */,
-				6F8F190D14730FAA00922703 /* XBMasterViewController_iPhone.xib */,
-				6F8F191014730FAA00922703 /* XBMasterViewController_iPad.xib */,
-				6F8F191314730FAA00922703 /* XBDetailViewController_iPhone.xib */,
-				6F8F191614730FAA00922703 /* XBDetailViewController_iPad.xib */,
+				6F03257714799896000DC92F /* XBURLConnectionAuthenticationDelegate.h */,
+				6F03257814799896000DC92F /* XBURLConnectionAuthenticationDelegate.m */,
 				6F8F18FC14730FAA00922703 /* Supporting Files */,
 			);
 			path = SSLTweets;
@@ -200,6 +209,7 @@
 				6F8F192014738C8800922703 /* XBTwitterSearchDataDelegate.m in Sources */,
 				6FE4AB651474538F002C0755 /* NSDictionary+Xebia.m in Sources */,
 				6F6A09701477021900F3A4F5 /* XBTextViewTableCell.m in Sources */,
+				6F03257914799896000DC92F /* XBURLConnectionAuthenticationDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "XBURLConnectionAuthenticationDelegate.h"
+
 @class XBTwitterSearchDataDelegate;
 
 @protocol XBTwitterSearchResultDelegate
@@ -18,7 +20,7 @@
 
 @end
 
-@interface XBTwitterSearchDataDelegate : NSObject<NSURLConnectionDataDelegate>
+@interface XBTwitterSearchDataDelegate : XBURLConnectionAuthenticationDelegate<NSURLConnectionDataDelegate>
 
 @property (weak, nonatomic) id<XBTwitterSearchResultDelegate> delegate;
 
