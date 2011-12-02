@@ -1,0 +1,10 @@
+This is a simple iOS application intended to demonstrate SSL pinning.
+
+The application consists of a simple master/detail application that
+displays the first page of results when searching Twitter for #SSL tweets.
+
+The Twitter search API is accessed over HTTPS. This application
+demonstrates how to use the built-in iOS APIs to ensure that the SSL
+certificate presented by a server is signed by a specific certificate
+authority (CA). This is, naturally, in addition to the normal certificate
+validation that takes place when initiating HTTPS connections.
