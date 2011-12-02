@@ -10,6 +10,7 @@
 
 #import "NSDictionary+Xebia.h"
 #import "XBDetailViewController.h"
+#import "XBAppDelegate.h"
 
 static NSString * const TWITTER_SEARCH_URL = @"https://search.twitter.com/search.json?q=%23ssl&lang=en";
 static const NSTimeInterval TWITTER_SEARCH_TIMEOUT = 30.0f;
@@ -121,6 +122,8 @@ static const NSTimeInterval TWITTER_SEARCH_TIMEOUT = 30.0f;
                                                  cachePolicy:NSURLRequestReloadRevalidatingCacheData
                                              timeoutInterval:TWITTER_SEARCH_TIMEOUT];
     XBTwitterSearchDataDelegate *searchResultProcessor = [[XBTwitterSearchDataDelegate alloc] init];
+    XBAppDelegate *appDelegate = (XBAppDelegate *)[UIApplication sharedApplication].delegate;
+    searchResultProcessor.reallyTrustedCertificateAuthorities = appDelegate.reallyTrustedCertificateAuthorities;
     self.currentSearchProcessor = searchResultProcessor;
     self.currentSearch = [NSURLConnection connectionWithRequest:newRequest delegate:searchResultProcessor];
 }

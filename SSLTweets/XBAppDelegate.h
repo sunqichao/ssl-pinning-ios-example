@@ -14,4 +14,7 @@
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) UISplitViewController *splitViewController;
 
+// Lazily initialized.
+@property (copy, nonatomic, readonly) NSSet *reallyTrustedCertificateAuthorities;
+
 @end

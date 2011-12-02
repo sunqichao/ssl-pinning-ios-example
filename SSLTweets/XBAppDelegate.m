@@ -17,6 +17,7 @@
 @synthesize window = window_;
 @synthesize navigationController = navigationController_;
 @synthesize splitViewController = splitViewController_;
+@synthesize reallyTrustedCertificateAuthorities = reallyTrustedCertificateAuthorities_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -50,6 +51,21 @@
     self.window = newWindow;
     [newWindow makeKeyAndVisible];
     return YES;
+}
+
+- (NSSet *)reallyTrustedCertificateAuthorities
+{
+    NSSet *trustedSet = reallyTrustedCertificateAuthorities_;
+    if (nil == trustedSet) {
+        NSBundle *appBundle = [NSBundle bundleForClass:[self class]];
+        NSString *pathOfTrustedCertificateAuthority = [appBundle pathForResource:@"required-ca" ofType:@"crt"];
+        NSData *trustedCertificateAuthority = [[NSData alloc] initWithContentsOfFile:pathOfTrustedCertificateAuthority];
+        if (nil != trustedCertificateAuthority)
+        {
+            reallyTrustedCertificateAuthorities_ = trustedSet = [NSSet setWithObject:trustedCertificateAuthority];
+        }
+    }
+    return trustedSet;
 }
 
 @end
