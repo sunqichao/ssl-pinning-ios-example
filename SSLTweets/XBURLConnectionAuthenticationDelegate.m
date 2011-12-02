@@ -10,6 +10,8 @@
 
 @implementation XBURLConnectionAuthenticationDelegate
 
+@synthesize reallyTrustedCertificateAuthorities = reallyTrustedCertificateAuthorities_;
+
 -(void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
     id <NSURLAuthenticationChallengeSender> sender = challenge.sender;
@@ -20,25 +22,33 @@
         SecTrustSetAnchorCertificatesOnly(serverTrustContext, false);
         SecTrustResultType trustResult;
         SecTrustEvaluate(serverTrustContext, &trustResult);
-        CFIndex certificateCount = SecTrustGetCertificateCount(serverTrustContext);
-        for (CFIndex i = 0; i < certificateCount; ++i)
-        {
-            SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrustContext, i);
-            CFStringRef certificateSummary = SecCertificateCopySubjectSummary(certificate);
-            NSLog(@"Certificate %u: %@", (unsigned)i, certificateSummary);
-            CFRelease(certificateSummary);
-        }
+        BOOL proceed = NO;
         switch (trustResult)
         {
             case kSecTrustResultProceed:
             case kSecTrustResultUnspecified:
             {
-                NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrustContext];
-                [sender useCredential:credential forAuthenticationChallenge:challenge];
-                break;
+                CFIndex certificateCount = SecTrustGetCertificateCount(serverTrustContext);
+                NSSet *trustedCertificates = self.reallyTrustedCertificateAuthorities;
+                for (CFIndex i = 0; i < certificateCount; ++i)
+                {
+                    SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrustContext, i);
+                    NSData *certificateData = CFBridgingRelease(SecCertificateCopyData(certificate));
+                    if ([trustedCertificates containsObject:certificateData]) {
+                        proceed = YES;
+                        break;
+                    }
+                }
             }
-            default:
-                [sender cancelAuthenticationChallenge:challenge];
+        }
+        if (proceed)
+        {
+            NSURLCredential *credential = [NSURLCredential credentialForTrust:serverTrustContext];
+            [sender useCredential:credential forAuthenticationChallenge:challenge];
+        }
+        else
+        {
+            [sender cancelAuthenticationChallenge:challenge];
         }
     }
     else

@@ -10,4 +10,8 @@
 
 @interface XBURLConnectionAuthenticationDelegate : NSObject<NSURLConnectionDelegate>
 
+// Set of certificates that are really trusted.
+// The validation chain for any SSL peer must contain one of these.
+@property (copy, nonatomic) NSSet *reallyTrustedCertificateAuthorities;
+
 @end
