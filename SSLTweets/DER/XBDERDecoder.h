@@ -14,7 +14,7 @@ enum derIdentifierClass
     derIdentifierApplicationClass = 0x40,
     derIdentifierContextSpecificClass = 0x80,
     derIdentifierPrivateClass = 0xc0,
-    
+
     derIdentifierInvalidClass = -1,
 };
 
@@ -22,7 +22,7 @@ enum derIdentifierPC
 {
     derIdentifierPrimitive = 0x00,
     derIdentifierConstructed = 0x20,
-    
+
     derIdentifierInvalidPC = derIdentifierInvalidClass,
 };
 

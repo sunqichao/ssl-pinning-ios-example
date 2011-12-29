@@ -34,7 +34,7 @@
     {
         XBMasterViewController *masterViewController = [[XBMasterViewController alloc] initWithNibName:@"XBMasterViewController_iPad" bundle:nil];
         UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
-        
+
         XBDetailViewController *detailViewController = [[XBDetailViewController alloc] initWithNibName:@"XBDetailViewController_iPad" bundle:nil];
         UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
         masterViewController.detailViewController = detailViewController;

@@ -132,7 +132,7 @@ static const NSTimeInterval TWITTER_SEARCH_TIMEOUT = 30.0f;
 {
     return [self.searchResults objectAtIndex:anIndex];
 }
-							
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -201,7 +201,7 @@ static const NSTimeInterval TWITTER_SEARCH_TIMEOUT = 30.0f;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForSearchResultAtIndex:(NSUInteger)anIndex
 {
     static NSString * const CELL_IDENTIFIER = @"TweetSummaryCell";
-    
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
     if (cell == nil)
     {

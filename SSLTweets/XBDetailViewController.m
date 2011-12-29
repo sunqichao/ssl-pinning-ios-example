@@ -56,7 +56,7 @@ static CGFloat SECTION_TEXT_ROW_TEXT_HEIGHT;
     if (detailItem_ != newDetailItem)
     {
         detailItem_ = newDetailItem;
-        
+
         // Update the view.
         [self configureView];
     }
@@ -174,7 +174,7 @@ static CGFloat SECTION_TEXT_ROW_TEXT_HEIGHT;
     }
     return cell;
 }
-							
+
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
