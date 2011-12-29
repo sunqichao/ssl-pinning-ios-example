@@ -8,6 +8,10 @@
 #error "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
+#ifndef __has_feature
+#define __has_feature(x) 0     // Compatibility with non-clang compilers.
+#endif
+
 #if !(__has_feature(objc_arc))
 #error "This project requires automated reference counting (ARC)."
 #endif
