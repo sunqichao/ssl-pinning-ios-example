@@ -1,10 +1,21 @@
-This is a simple iOS application intended to demonstrate SSL pinning.
+This is an example iOS application that demonstrates SSL pinning.
 
 The application consists of a simple master/detail application that
-displays the first page of results when searching Twitter for #SSL tweets.
+displays the first page of results when searching Twitter for #SSL
+tweets.
 
-The Twitter search API is accessed over HTTPS. This application
-demonstrates how to use the built-in iOS APIs to ensure that the SSL
-certificate presented by a server is signed by a specific certificate
-authority (CA). This is, naturally, in addition to the normal certificate
-validation that takes place when initiating HTTPS connections.
+The Twitter search API is accessed over HTTPS. The built-in iOS
+APIs are used to ensure that the SSL certificate presented by the
+server is signed by a specific certificate authority. This is in
+addition to the normal certificate validation that the platform
+performs when making HTTPS requests.
+
+The starting place for looking at how this works is the delegate
+responsible for handling HTTP authentication challenges:
+  XBURLConnectionAuthenticationDelegate
+
+Disclaimer:
+  This project is published as-is and is intended as a proof-of-concept
+  to demonstrate a technique. Appropriate security techniqeues and
+  their implementation depend on the application context and require
+  careful consideration and review.
