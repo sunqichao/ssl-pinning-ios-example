@@ -9,8 +9,8 @@
 #import "XBAppDelegate.h"
 
 #import "XBMasterViewController.h"
-
 #import "XBDetailViewController.h"
+#import "XBDERDecoder.h"
 
 @implementation XBAppDelegate
 
@@ -61,9 +61,14 @@
         NSBundle *appBundle = [NSBundle bundleForClass:[self class]];
         NSString *pathOfTrustedCertificateAuthority = [appBundle pathForResource:@"required-ca" ofType:@"crt"];
         NSData *trustedCertificateAuthority = [[NSData alloc] initWithContentsOfFile:pathOfTrustedCertificateAuthority];
-        if (nil != trustedCertificateAuthority)
+        NSData *identityOfTrustedCertificateAuthority = [trustedCertificateAuthority dataForX509CertificateSubjectPublicKeyInfo];
+        if (nil != identityOfTrustedCertificateAuthority)
         {
-            reallyTrustedCertificateAuthorities_ = trustedSet = [NSSet setWithObject:trustedCertificateAuthority];
+            reallyTrustedCertificateAuthorities_ = trustedSet = [NSSet setWithObject:identityOfTrustedCertificateAuthority];
+        }
+        else
+        {
+            NSLog(@"Unable to load identity of trusted certificate authority; all CAs will be accepted.");
         }
     }
     return trustedSet;

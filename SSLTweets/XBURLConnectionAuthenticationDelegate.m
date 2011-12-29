@@ -8,6 +8,8 @@
 
 #import "XBURLConnectionAuthenticationDelegate.h"
 
+#import "XBDERDecoder.h"
+
 @implementation XBURLConnectionAuthenticationDelegate
 
 @synthesize reallyTrustedCertificateAuthorities = reallyTrustedCertificateAuthorities_;
@@ -29,12 +31,13 @@
             case kSecTrustResultUnspecified:
             {
                 CFIndex certificateCount = SecTrustGetCertificateCount(serverTrustContext);
-                NSSet *trustedCertificates = self.reallyTrustedCertificateAuthorities;
+                NSSet *trustedCertificateIdentities = self.reallyTrustedCertificateAuthorities;
                 for (CFIndex i = 0; i < certificateCount; ++i)
                 {
                     SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrustContext, i);
                     NSData *certificateData = CFBridgingRelease(SecCertificateCopyData(certificate));
-                    if ([trustedCertificates containsObject:spkiData])
+                    NSData *spkiData = [certificateData dataForX509CertificateSubjectPublicKeyInfo];
+                    if ([trustedCertificateIdentities containsObject:spkiData])
                     {
                         proceed = YES;
                         break;

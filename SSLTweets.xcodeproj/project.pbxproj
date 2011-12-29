@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F03257914799896000DC92F /* XBURLConnectionAuthenticationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F03257814799896000DC92F /* XBURLConnectionAuthenticationDelegate.m */; };
 		6F03257C14799AC8000DC92F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F03257B14799AC8000DC92F /* Security.framework */; };
+		6F4B2BF6148BA4D8002E6C70 /* XBDERDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4B2BF5148BA4D8002E6C70 /* XBDERDecoder.m */; };
 		6F6A09701477021900F3A4F5 /* XBTextViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */; };
 		6F8F18F614730FAA00922703 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F18F514730FAA00922703 /* UIKit.framework */; };
 		6F8F18F814730FAA00922703 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8F18F714730FAA00922703 /* Foundation.framework */; };
@@ -31,6 +32,8 @@
 		6F03257714799896000DC92F /* XBURLConnectionAuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBURLConnectionAuthenticationDelegate.h; sourceTree = "<group>"; };
 		6F03257814799896000DC92F /* XBURLConnectionAuthenticationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBURLConnectionAuthenticationDelegate.m; sourceTree = "<group>"; };
 		6F03257B14799AC8000DC92F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6F4B2BF4148BA4D8002E6C70 /* XBDERDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBDERDecoder.h; sourceTree = "<group>"; };
+		6F4B2BF5148BA4D8002E6C70 /* XBDERDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBDERDecoder.m; sourceTree = "<group>"; };
 		6F6A096E1477021900F3A4F5 /* XBTextViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBTextViewTableCell.h; sourceTree = "<group>"; };
 		6F6A096F1477021900F3A4F5 /* XBTextViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBTextViewTableCell.m; sourceTree = "<group>"; };
 		6F8F18F114730FAA00922703 /* SSLTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSLTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F4B2BF3148BA456002E6C70 /* DER */ = {
+			isa = PBXGroup;
+			children = (
+				6F4B2BF4148BA4D8002E6C70 /* XBDERDecoder.h */,
+				6F4B2BF5148BA4D8002E6C70 /* XBDERDecoder.m */,
+			);
+			path = DER;
+			sourceTree = "<group>";
+		};
 		6F8F18E614730FAA00922703 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +116,7 @@
 		6F8F18FB14730FAA00922703 /* SSLTweets */ = {
 			isa = PBXGroup;
 			children = (
+				6F4B2BF3148BA456002E6C70 /* DER */,
 				6F9779CE147ED540003138B9 /* Categories */,
 				6F8F190414730FAA00922703 /* XBAppDelegate.h */,
 				6F8F190514730FAA00922703 /* XBAppDelegate.m */,
@@ -230,6 +243,7 @@
 				6FE4AB651474538F002C0755 /* NSDictionary+Xebia.m in Sources */,
 				6F6A09701477021900F3A4F5 /* XBTextViewTableCell.m in Sources */,
 				6F03257914799896000DC92F /* XBURLConnectionAuthenticationDelegate.m in Sources */,
+				6F4B2BF6148BA4D8002E6C70 /* XBDERDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
