@@ -1,0 +1,38 @@
+#!/usr/bin/env scala
+#
+# Small script for extracting the SPKI data from one or more certificates.
+# 
+# An alternative way of doing something similar is:
+#   openssl -in file.crt -inform der -noout -C
+#
+!#
+
+import java.io._
+import java.security.MessageDigest
+import java.security.cert._
+
+import util.control.Exception._
+
+object Hex {
+  def valueOf(buf: Array[Byte]): String = buf.map("%02x" format _).mkString
+}
+
+val certificateFactory = CertificateFactory.getInstance("X509")
+val digestFactory = MessageDigest.getInstance("SHA");
+args.foreach(arg => {
+  val inputStream = new FileInputStream(arg)
+  ultimately(inputStream.close()) {
+    val certificate = certificateFactory.generateCertificate(inputStream).asInstanceOf[X509Certificate]
+
+    val publicKeyName = certificate.getSubjectX500Principal().getName()
+    System.out.printf("%s: name=> %s\n", arg, publicKeyName)
+
+    val publicKey = certificate.getPublicKey()
+    val publicKeyDer = publicKey.getEncoded()
+    System.out.printf("%s: spki=> %s\n", arg, Hex.valueOf(publicKeyDer))
+
+    val digestor = digestFactory.clone().asInstanceOf[MessageDigest]
+    val publicKeyDigest = digestor.digest(publicKeyDer)
+    System.out.printf("%s: sha1=> %s\n", arg, Hex.valueOf(publicKeyDigest))
+  }
+})
