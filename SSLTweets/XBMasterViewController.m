@@ -145,7 +145,8 @@ static const NSTimeInterval TWITTER_SEARCH_TIMEOUT = 30.0f;
     self.navigationItem.rightBarButtonItem = refreshButton;
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
     self.refreshButton = nil;
 }
 
@@ -220,7 +221,8 @@ static const NSTimeInterval TWITTER_SEARCH_TIMEOUT = 30.0f;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case 0:
         {
             NSInteger row = indexPath.row;

@@ -10,7 +10,8 @@
 
 @implementation NSDictionary (Xebia)
 
-- (id)objectForKey:(id)aKey ifKindOfClass:(Class)aClass {
+- (id)objectForKey:(id)aKey ifKindOfClass:(Class)aClass
+{
     return [self objectForKey:aKey ifKindOfClass:aClass notFoundMarker:nil];
 }
 

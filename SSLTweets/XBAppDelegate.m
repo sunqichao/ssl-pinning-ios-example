@@ -56,7 +56,8 @@
 - (NSSet *)reallyTrustedCertificateAuthorities
 {
     NSSet *trustedSet = reallyTrustedCertificateAuthorities_;
-    if (nil == trustedSet) {
+    if (nil == trustedSet)
+    {
         NSBundle *appBundle = [NSBundle bundleForClass:[self class]];
         NSString *pathOfTrustedCertificateAuthority = [appBundle pathForResource:@"required-ca" ofType:@"crt"];
         NSData *trustedCertificateAuthority = [[NSData alloc] initWithContentsOfFile:pathOfTrustedCertificateAuthority];

@@ -11,7 +11,8 @@
 #import "NSDictionary+Xebia.h"
 #import "XBTextViewTableCell.h"
 
-enum {
+enum
+{
     SECTION_TEXT = 0,
     SECTION_TEXT_ROW_TEXT = 0,
     SECTION_TEXT_ROW_COUNT = SECTION_TEXT_ROW_TEXT + 1,
@@ -104,7 +105,8 @@ static CGFloat SECTION_TEXT_ROW_TEXT_HEIGHT;
 {
     CGFloat height;
     NSInteger row = indexPath.row;
-    switch (indexPath.section) {
+    switch (indexPath.section)
+    {
         case SECTION_TEXT:
             height = [self tableView:tableView heightForTextSectionRowAtIndex:row];
             break;

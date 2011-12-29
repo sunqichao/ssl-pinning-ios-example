@@ -34,7 +34,8 @@
                 {
                     SecCertificateRef certificate = SecTrustGetCertificateAtIndex(serverTrustContext, i);
                     NSData *certificateData = CFBridgingRelease(SecCertificateCopyData(certificate));
-                    if ([trustedCertificates containsObject:certificateData]) {
+                    if ([trustedCertificates containsObject:spkiData])
+                    {
                         proceed = YES;
                         break;
                     }
