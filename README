@@ -16,6 +16,6 @@ responsible for handling HTTP authentication challenges:
 
 Disclaimer:
   This project is published as-is and is intended as a proof-of-concept
-  to demonstrate a technique. Appropriate security techniqeues and
+  to demonstrate a technique. Appropriate security techniques and
   their implementation depend on the application context and require
   careful consideration and review.
